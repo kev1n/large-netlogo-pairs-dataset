@@ -21,7 +21,7 @@ class NetLogoModelParser(ABC):
         self.models = []
         self.formats_since_reload = 0
         self._setup_webdriver()
-
+    # TODO: Not use a browser for this at all, but may be too much effort
     def _setup_webdriver(self):
         """Setup the Selenium webdriver for code formatting."""
         options = webdriver.ChromeOptions()
