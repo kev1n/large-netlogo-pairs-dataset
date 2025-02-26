@@ -7,7 +7,7 @@ import requests
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 from utils.llm_pseudocode_generator import LLMPseudocodeGenerator
 
 class NetLogoModelParser(ABC):
@@ -110,7 +110,9 @@ class NetLogoModelParser(ABC):
                         "originalCode": proc_content.strip(),
                         "numberedOriginalCode": numbered_code,
                         "pseudoCode": [],
-                        "codeToPseudoCodeMap": []  # Will store the 1:1 mapping
+                        "codeToPseudoCodeMap": [],  # Will store the 1:1 mapping
+                        "summary": "",              # Will store the procedure summary
+                        "variables": []             # Will store the non-primitive variables
                     }
                     procedures.append(procedure)
             
